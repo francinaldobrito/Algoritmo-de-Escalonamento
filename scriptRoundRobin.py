@@ -1,32 +1,29 @@
-#Process objects
-#Grantt Chart
-#Shift CL
-#RR
-chart = []
 class Process:
-    def __init__(self, pid, AT, BT):
-        self.pid = pid  # process
-        self.arrival = AT  # waiting time
-        self.burst = BT  # waiting burst
-
-
-def shiftCL(alist):
+    def __init__(self, pid, wt, bt):
+        self.pid=pid    		#process
+        self.arrival=wt 		#waiting time
+        self.burst=bt   		#waiting burst
+chart = []
+def shiftCL(alist):			#Troca de quantum
     temp = alist[0]
     for i in range(len(alist) - 1):
         alist[i] = alist[i + 1]
     alist[len(alist) - 1] = temp
     return alist
-
-
 def RR(tq, plist, n):
+					#tq	tempo de quantum
+					#plist  lista de processo
+					#numero do processo
+
     global chart
-    queue = []
-    time = 0  # tempo de chegada
-    ap = 0  # tempo do processo
-    rp = 0
-    done = 0  # processo terminou
-    q = tq  # tempo de quantum
-    start = 0
+    queue = []				# fila
+    time = 0  				# tempo de chegada
+    ap = 0  				# tempo do processo
+    rp = 0				# processo pronto
+    done = 0  				# processo terminou
+    q = tq  				# tempo de quantum
+    start = 0				# inicia a troca de quantum
+
     while (done < n):
 
         for i in range(ap, n):
@@ -67,4 +64,3 @@ plist.append(Process(4, 5, 1))
 plist.append(Process(5, 6, 4))
 RR(3, plist, len(plist))
 print(chart)
-
