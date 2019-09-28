@@ -4,7 +4,7 @@ class Process:
         self.arrival=wt 		#waiting time
         self.burst=bt   		#waiting burst
 chart = []
-def shiftCL(alist):			#Troca de quantum
+def shiftCL(alist):			#mudança de quantum
     temp = alist[0]
     for i in range(len(alist) - 1):
         alist[i] = alist[i + 1]
@@ -31,6 +31,7 @@ def RR(tq, plist, n):
                 queue.append(plist[i])
                 ap += 1
                 rp += 1
+	print(entrou 1 for)
 
         if rp < 1:
             chart.append(0)
